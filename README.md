@@ -1,16 +1,14 @@
-## Hi there 👋
+### Olá, eu sou o Igor 👋
 
-<!--
-**orlov07/orlov07** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Desenvolvedor Full Stack, criando sites institucionais e sistemas sob medida para pequenos negócios — sob a marca **TechBild**.
 
-Here are some ideas to get you started:
+Stack: React, TypeScript, Supabase, Vite
+Local: Recreio, Minas Gerais
+Portfólio: igoraidev.web.app
+Instagram: @igviana_
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Projetos em destaque**
+
+TechBildAcess — venda, gestão e validação de ingressos online
+CRMBASICORIQUELME — CRM multiusuário para fábrica de blocos
+SystemPadaria — sistema de gestão para padaria
