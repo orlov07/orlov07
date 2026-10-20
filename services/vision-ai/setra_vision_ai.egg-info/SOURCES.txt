@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-app/main.py
-setra_vision_ai.egg-info/PKG-INFO
-setra_vision_ai.egg-info/SOURCES.txt
-setra_vision_ai.egg-info/dependency_links.txt
-setra_vision_ai.egg-info/requires.txt
-setra_vision_ai.egg-info/top_level.txt
-tests/test_api.py
