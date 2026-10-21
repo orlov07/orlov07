@@ -30,6 +30,12 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+services/vision-ai/videos/
+services/vision-ai/dataset/
+services/vision-ai/dataset-*/
+services/vision-ai/runs/
+services/vision-ai/*.pt
+runs/
 
 # IDE, OS and local tooling
 .vscode/

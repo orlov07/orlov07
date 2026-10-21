@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyPoint, createMatch, displayPoint, pauseMatch, resumeMatch, revertLastPoint, startMatch } from "./index";
+import { applyPoint, createMatch, displayPoint, finishMatch, pauseMatch, resumeMatch, revertLastPoint, startMatch } from "./index";
 
 const live = () => startMatch(createMatch({ id: "test", teamA: "A", teamB: "B" }));
 const points = (initial: ReturnType<typeof live>, team: "A" | "B", amount: number) => {
@@ -26,6 +26,29 @@ describe("scoring engine", () => {
   it("desfaz o último ponto de forma imutável", () => {
     const first = live(); const scored = applyPoint(first, "B"); const reverted = revertLastPoint(scored);
     expect(reverted.points.B).toBe(0); expect(scored.points.B).toBe(1); expect(reverted.version).toBe(3);
+  });
+  it("desfaz corretamente depois de pausar a partida", () => {
+    const scored = applyPoint(live(), "A");
+    const paused = pauseMatch(scored);
+    const reverted = revertLastPoint(paused);
+    expect(reverted.points.A).toBe(0);
+    expect(reverted.status).toBe("paused");
+    expect(reverted.history).toHaveLength(0);
+  });
+  it("desfaz um ponto que fechou o game", () => {
+    const scored = points(live(), "A", 4);
+    const reverted = revertLastPoint(scored);
+    expect(reverted.sets[0]).toEqual({ gamesA: 0, gamesB: 0 });
+    expect(displayPoint(reverted, "A")).toBe("40");
+  });
+  it("permite finalizar manualmente e desfazer a finalização", () => {
+    const running = applyPoint(live(), "A");
+    const finished = finishMatch(running, "A");
+    expect(finished.status).toBe("finished");
+    expect(finished.winner).toBe("A");
+    const reopened = revertLastPoint(finished);
+    expect(reopened.status).toBe("live");
+    expect(reopened.winner).toBeNull();
   });
   it("recusa ponto antes do início", () => expect(() => applyPoint(createMatch({ teamA: "A", teamB: "B" }), "A")).toThrow());
   it("exige vantagem de dois pontos quando no-ad está desligado", () => {

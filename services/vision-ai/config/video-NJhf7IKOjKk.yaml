@@ -1,0 +1,17 @@
+source: videos/NJhf7IKOjKk.mp4
+source_url: https://youtu.be/NJhf7IKOjKk
+authorized_by_user: true
+width: 1280
+height: 720
+fps: 29.970
+frames: 50159
+duration_seconds: 1673.64
+annotation_interval: 10
+class_names:
+  0: ball
+recommendations:
+  minimum_positive_frames: 800
+  minimum_negative_frames: 250
+  annotate_occluded_ball: false
+  tight_boxes: true
+  use_overlapping_tiles: true

@@ -67,6 +67,12 @@ export function resumeMatch(state: MatchState): MatchState {
   return { ...state, status: "live", version: state.version + 1 };
 }
 
+export function finishMatch(state: MatchState, winner: Team): MatchState {
+  if (state.status !== "live" && state.status !== "paused") throw new Error("A partida não pode ser finalizada neste estado.");
+  const snapshot = { ...state, history: [], sets: state.sets.map(set => ({ ...set })), points: { ...state.points }, setsWon: { ...state.setsWon } };
+  return { ...state, status: "finished", winner, version: state.version + 1, history: [...state.history, snapshot] };
+}
+
 export function applyPoint(state: MatchState, winner: Team): MatchState {
   if (state.status !== "live") throw new Error("Só é possível pontuar em uma partida ao vivo.");
   if (state.winner) throw new Error("A partida já terminou.");
@@ -106,7 +112,7 @@ export function applyPoint(state: MatchState, winner: Team): MatchState {
 export function revertLastPoint(state: MatchState): MatchState {
   const previous = state.history.at(-1);
   if (!previous) throw new Error("Não há ponto para desfazer.");
-  return { ...previous, version: state.version + 1, history: state.history.slice(0, -1) };
+  return { ...previous, status: state.status === "paused" ? "paused" : previous.status, version: state.version + 1, history: state.history.slice(0, -1) };
 }
 
 export function displayPoint(state: MatchState, team: Team): string {

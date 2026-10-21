@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Camera, Check, Radio, ShieldCheck, Sparkles, Trophy, WifiOff } from "lucide-react";
+import { ArrowRight, Camera, Check, Radio, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 
 const features = [
   { icon: Camera, title: "A quadra vira dado", text: "Use a câmera do celular para capturar lances e revisar momentos importantes." },
@@ -12,7 +12,7 @@ export default function Home() {
     <nav className="nav shell">
       <Link href="/" className="brand"><img src="/setra-logo.png" alt="" /><span>SETRA</span></Link>
       <div className="navLinks"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a></div>
-      <Link href="/dashboard" className="button buttonSmall">Abrir SETRA <ArrowRight size={16} /></Link>
+      <Link href="/login" className="button buttonSmall">Entrar <ArrowRight size={16} /></Link>
     </nav>
 
     <section className="hero shell">
@@ -23,18 +23,11 @@ export default function Home() {
         <div className="heroActions"><Link href="/partida/nova" className="button">Iniciar partida <ArrowRight size={19} /></Link><a href="#como-funciona" className="textLink">Ver como funciona <span>↓</span></a></div>
         <div className="trust"><span><Check size={15}/> Funciona sem conta</span><span><WifiOff size={15}/> Pontuação offline</span><span><ShieldCheck size={15}/> Você confirma cada ponto</span></div>
       </div>
-      <div className="scoreStage" aria-label="Demonstração do placar SETRA">
+      <div className="scoreStage" aria-label="Visão geral do placar SETRA">
         <div className="courtLines" />
-        <div className="livePill"><span className="pulse"/> AO VIVO · SET 2</div>
         <div className="scoreCard">
-          <div className="scoreTop"><span>QUADRA CENTRAL</span><span>34:12</span></div>
-          <div className="teamRow serving"><div><span className="serveDot"/>LARA & BIA<small>BRASIL</small></div><strong>40</strong><div className="sets"><b>6</b><b>3</b></div></div>
-          <div className="divider"/>
-          <div className="teamRow"><div>JÚLIA & ANA<small>BRASIL</small></div><strong>30</strong><div className="sets"><b>4</b><b>2</b></div></div>
-          <div className="scoreFooter"><Sparkles size={16}/> Possível fim de ponto detectado <span>88%</span></div>
+          <div className="emptyScoreState"><Radio/><span>Pronto para entrar em quadra?</span><p>Crie uma partida e o placar será atualizado em tempo real.</p><Link href="/partida/nova">Criar partida <ArrowRight size={16}/></Link></div>
         </div>
-        <div className="floatTag tagOne">IA ASSISTIVA <b>ATIVA</b></div>
-        <div className="floatTag tagTwo"><Trophy size={15}/> MELHOR DE 3 SETS</div>
       </div>
     </section>
 
@@ -49,7 +42,7 @@ export default function Home() {
 
     <section id="recursos" className="controlSection"><div className="shell controlGrid">
       <div className="controlCopy"><span className="kicker">HUMANO NO COMANDO</span><h2>Inteligência que<br/>não toma partido.</h2><p>A IA do SETRA nunca altera o resultado sozinha. Ela analisa, sugere e aguarda a confirmação de uma pessoa autorizada.</p><ul><li><Check/> Sugestões com nível de confiança</li><li><Check/> Correção e desfazer a qualquer momento</li><li><Check/> Histórico auditável de cada evento</li></ul></div>
-      <div className="confirmCard"><div className="cameraMock"><div className="net"/><span>CÂMERA 01 · AO VIVO</span></div><div className="suggestion"><span>Possível ponto para</span><h3>LARA & BIA</h3><div className="confidence"><i style={{width:"88%"}}/><span>88% confiança</span></div><div className="confirmActions"><button>Confirmar ponto</button><button className="secondary">Corrigir</button></div><small>Análise assistiva · requer confirmação</small></div></div>
+      <div className="confirmCard"><div className="cameraMock"><div className="net"/><span>VISÃO DA QUADRA</span></div><div className="suggestion emptySuggestion"><Sparkles/><h3>Análise assistiva</h3><p>Quando a câmera estiver ativa, sugestões de eventos aparecerão aqui para sua confirmação.</p><small>Nenhuma análise em andamento</small></div></div>
     </div></section>
 
     <section className="finalCta shell"><span className="kicker">PRONTO PARA O PRIMEIRO SAQUE?</span><h2>Seu jogo merece<br/>um placar à altura.</h2><Link href="/partida/nova" className="button">Criar partida grátis <ArrowRight size={19}/></Link></section>
