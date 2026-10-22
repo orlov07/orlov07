@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import "./tracker.css";
 import { PwaRegister } from "@/components/pwa-register";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
