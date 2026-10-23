@@ -17,3 +17,13 @@ O índice técnico exibido combina cor, geometria, movimento, qualidade do conto
 ## Verificação local
 
 `npm run typecheck`, `npm test`, `npm run test --workspace @setra/web` e `npm run build` cobrem o motor existente, associação temporal, iluminação, objetos semelhantes, oclusão/recuperação, mudança de direção, homografia e deduplicação de eventos.
+
+## Diagnóstico do pipeline
+
+O processamento começa assim que vídeo, Worker e OpenCV estão prontos. A calibração não bloqueia a captura: antes de selecionar a bola, o Worker processa movimento para comprovar o pipeline; depois da seleção, acrescenta a máscara HSV e habilita a associação do rastreador.
+
+O painel mostra separadamente resolução/estado do vídeo, Worker, OpenCV, transporte (`bitmap` ou fallback `pixels`), FPS de captura, FPS de processamento, duração do último frame, número de candidatos e último erro. Uma resposta pendente por mais de 2,5 segundos gera erro de timeout visível.
+
+O transporte principal usa `ImageBitmap` quando `OffscreenCanvas` está disponível no Worker. Caso qualquer um deles não esteja disponível ou a criação do bitmap falhe, o canvas principal envia o buffer RGBA transferível. Erros de criação, execução e desserialização do Worker são observáveis.
+
+Em 22/10/2026, o teste local do runtime OpenCV processou 120 frames sintéticos de 320×180 em 92,85 ms (1.292,38 FPS para diferença, threshold e contagem de pixels). Esse número comprova funcionamento do runtime local, mas não representa o desempenho completo do Worker em um celular. O vídeo autorizado local respondeu HTTP 206 a uma solicitação parcial. Não havia navegador gráfico conectado à sessão de automação para uma medição visual fim a fim; essa medição deve ser lida no painel durante o uso real.
