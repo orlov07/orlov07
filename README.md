@@ -1,46 +1,47 @@
-# SETRA
+<h1 align="center">Igor Aguiar Viana</h1>
+<p align="center"><strong>Full Stack Developer | Software Engineering | AI & Automation</strong></p>
+<p align="center">Desenvolvendo aplicações web, sistemas personalizados e soluções inteligentes para problemas reais.</p>
 
-Plataforma SportsTech para pontuação e análise assistida de partidas de Beach Tennis. O produto adota confirmação humana: previsões de IA nunca alteram o placar oficial diretamente.
+<p align="center">
+  <a href="https://www.linkedin.com/in/igor-aguiar-viana/">LinkedIn</a> •
+  <a href="https://igoraidev.web.app">Portfólio</a> •
+  <a href="https://github.com/orlov07?tab=repositories">Repositórios</a>
+</p>
 
-## Estado atual
+---
 
-- Landing page responsiva e identidade visual SETRA.
-- Criação local de partida e placar ao vivo funcional.
-- Motor de pontuação isolado, imutável e testado (No-Ad, games, sets, tie-break, saque e reversão).
-- PWA inicial com shell offline e placar retomável no dispositivo.
-- Captura de câmera e gravação/revisão local de clipes curtos.
-- Schema Supabase e confirmação transacional idempotente preparados para aplicação.
-- Contrato inicial do serviço de visão em FastAPI, com simulação explicitamente limitada ao ambiente de desenvolvimento.
+## Sobre mim
 
-## Executar
+Sou desenvolvedor Full Stack com experiência prática na construção e manutenção de aplicações web, painéis administrativos, integrações de APIs e automação de processos. Atuo tanto no frontend quanto no backend, com foco em soluções funcionais, interfaces responsivas e melhoria de fluxos operacionais.
 
-Requisitos: Node.js 20+ e npm 10+.
+Tenho interesse especial em inteligência artificial, ferramentas para produtividade e engenharia de software. Estou aberto a oportunidades de desenvolvimento de software, inclusive remotas, e a colaborações em projetos.
 
-```bash
-npm install
-npm run dev
-```
+## Tecnologias e ferramentas
 
-Acesse `http://localhost:3000`. Para validar:
+**Frontend:** React, Next.js, JavaScript, TypeScript  
+**Backend e dados:** Node.js, APIs REST, PostgreSQL, Supabase  
+**Outras ferramentas:** Python, Git, GitHub, Power BI  
+**Áreas de atuação:** Desenvolvimento Full Stack, automação de processos, integrações e inteligência artificial
 
-```bash
-npm test
-npm run typecheck
-npm run build
-```
+## Projetos em destaque
 
-O serviço de visão é opcional nesta fase e está documentado em `services/vision-ai/README.md`.
+### VOID — Assistente de Inteligência Artificial
+Assistente pessoal em desenvolvimento, com foco em execução local, interface própria e integração de recursos inteligentes.
 
-## Organização
+### SETRA — Sistema Inteligente de Análise Esportiva
+Plataforma SportsTech em desenvolvimento para apoiar pontuação, acompanhamento de partidas e análise de vídeos de beach tennis, com validação humana dos resultados.
 
-```text
-apps/web                  Aplicação Next.js
-packages/scoring-engine   Regras de domínio puras
-services/vision-ai        Contrato FastAPI para análise assíncrona
-supabase/migrations       Migrations versionadas (próxima fase)
-docs                      Decisões e roadmap técnico
-```
+### Painel de BI com Análise por IA
+Sistema de Business Intelligence para acompanhamento de indicadores operacionais, filtros dinâmicos e apoio à análise de dados.
 
-## Limites atuais
+## Experiência profissional
 
-Autenticação, Realtime, persistência remota, upload de clipes e detecção real por visão computacional ainda não estão conectados. Câmera e PWA exigem HTTPS fora de `localhost`. O fluxo atual é local e não apresenta dados simulados como produção.
+**Desenvolvedor Trainee — CobCred** | set. 2025 – mar. 2026  
+Desenvolvimento e manutenção de sistemas internos, dashboards operacionais, automações, integrações de APIs e tratamento de dados.
+
+**Desenvolvimento Full Stack — Projetos próprios / Freelance** | jan. 2026 – atual  
+Construção de aplicações web, sistemas personalizados, interfaces e soluções de automação.
+
+---
+
+<p align="center">Aberto a oportunidades, projetos e conexões profissionais.</p>
